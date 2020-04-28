@@ -1,0 +1,19 @@
+{
+  "name": "copy-me",
+  "version": "1.0.0",
+  "description": "A simple GUI file transfer application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavanskipo/copy-me.git"
+  },
+  "author": "Pavan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavanskipo/copy-me/issues"
+  },
+  "homepage": "https://github.com/pavanskipo/copy-me#readme"
+}
