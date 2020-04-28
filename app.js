@@ -1,19 +1,20 @@
 // Local Imports
 const os_utility = require('./utilities/determine_os');
 const error_log_and_Exit = require('./errors/log_and_exit');
-
+const linux_controller = require('./linux_source/linux_controller');
 
 // Declarations
-MY_OPERATING_SYSTEM = '';
+Controller = '';
 const SUPPORTED_OS = {
-    LINUX: 'linux_source',
+    LINUX: linux_controller,
     WINDOWS: 'windows_source',
     MAC: 'mac_source',
 }
 
 // Initializations 
 try {
-    MY_OPERATING_SYSTEM = SUPPORTED_OS[os_utility()];
+    Controller = SUPPORTED_OS[os_utility()];
+    Controller.initialize();
 } catch (error) {
     error_log_and_Exit(error);
 }

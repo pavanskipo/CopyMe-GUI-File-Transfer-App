@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pavanskipo/copy-me/issues"
   },
-  "homepage": "https://github.com/pavanskipo/copy-me#readme"
+  "homepage": "https://github.com/pavanskipo/copy-me#readme",
+  "dependencies": {
+    "sudo-prompt": "^9.1.1"
+  }
 }
