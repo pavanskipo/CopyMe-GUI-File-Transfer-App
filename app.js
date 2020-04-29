@@ -11,10 +11,11 @@ const SUPPORTED_OS = {
     MAC: 'mac_source',
 }
 
-// Initializations 
+// Initialize and Begin
 try {
     Controller = SUPPORTED_OS[os_utility()];
     Controller.initialize();
+    Controller.start();
 } catch (error) {
     error_log_and_Exit(error);
 }
