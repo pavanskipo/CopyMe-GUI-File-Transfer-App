@@ -1,1 +1,0 @@
-index.ejs - shld contain ip and details of available devices

@@ -1,0 +1,32 @@
+<ngx-spinner></ngx-spinner>
+<div class="container">
+  <div *ngIf="device_list">
+    <h3>Available Devices:</h3>
+    <ul class="list-group" *ngFor="let device of list_of_devices">
+      <li class="list-group-item" (click)="getDeviceDetails(device.ip)">
+        <div class="avatar">
+          <img src="/assets/{{device.os_image}}" alt="naruto">
+        </div>
+        <div>{{device.name}}</div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!device_list">
+    <div class="center">
+      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" >
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+          Optional custom content that replaces the the entire default content.
+          <button type="button" (click)="openFileSelector()">Browse Files</button>
+        </ng-template>
+      </ngx-file-drop>
+      <ul class="list-group" *ngFor="let file of files">
+        <li class="list-group-item">
+          <div style="width: 100%;">{{file.relativePath}}
+            <progress-bar [progress]="file_progress[file.relativePath]" [color-degraded]="{'0': '#FF0000',  '15': '#0000FF', '25': '#008000'}">
+            </progress-bar>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ function httpGetDevice(ip) {
     return new Promise((resolve, reject) => {
         request({
             "method": "GET",
-            "uri": "http://" + ip + ":3000/getdevicedetails",
+            "uri": "http://" + ip + ":3000/api/getdevicedetails",
             "json": true,
         }).then((device) => {
             resolve(device);
