@@ -72,10 +72,11 @@
       <% list_of_devices.forEach(function(device) { %>
       <li class="list-group-item">
         <div class="avatar">
-          <img src="<%= device.os_image %>"
-              alt="naruto">
+          <img src="<%= device.os_image %>" alt="naruto">
         </div>
-        <div><%= device.name %></div>
+        <div>
+          <a href="/upload/<%= device.ip %>">
+            <%= device.name %></a></div>
       </li>
       <% }); %>
     </ul>

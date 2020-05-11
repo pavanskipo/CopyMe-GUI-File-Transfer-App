@@ -34,6 +34,24 @@ function getListOfDevices() {
     });    
 }
 
+function getSingleDeviceDetails(ip) {
+    return new Promise(async (resolve, reject) => {
+        let device_details = {};
+        let device = await http.httpGetDevice(ip);
+        if (device) {
+            device_details = {
+                name: device.name,
+                ip: ip,
+                os: device.os,
+                os_image: device.os_image
+            }
+            resolve(device_details);
+        } else {
+            reject("device not supported");
+        }
+    })
+}
+
 function init() {
     try {
         linux_initialize();
@@ -60,5 +78,6 @@ function generateListOfDevices() {
 
 module.exports = {
     initialize: init,
-    getListOfDevices: getListOfDevices
+    getListOfDevices: getListOfDevices,
+    getSingleDeviceDetails: getSingleDeviceDetails
 }
