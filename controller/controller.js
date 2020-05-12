@@ -6,6 +6,7 @@ const hostname = require('../utilities/get_hostname');
 const error_log_and_Exit = require('../errors/log_and_exit');
 const linux_controller = require('../linux_source/linux_controller');
 const osx_controller = require('../osx_source/osx_controller');
+const windows_controller = require('../windows_source/windows_controller');
 const storage = require('../utilities/upload_handler');
 
 // Declarations
@@ -15,7 +16,10 @@ const SUPPORTED_OS = {
         controller: linux_controller,
         image: '/images/linux.png'
     },
-    WINDOWS: 'windows_source',
+    WINDOWS: {
+        controller: windows_controller,
+        image: '/images/windows.png'
+    },
     MAC: {
         controller: osx_controller,
         image: '/images/osx.png'
