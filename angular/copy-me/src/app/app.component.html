@@ -5,7 +5,7 @@
     <ul class="list-group" *ngFor="let device of list_of_devices">
       <li class="list-group-item" (click)="getDeviceDetails(device.ip)">
         <div class="avatar">
-          <img src="/assets/{{device.os_image}}" alt="naruto">
+          <img src="/assets/{{device.os_image}}" alt="Device">
         </div>
         <div>{{device.name}}</div>
       </li>
