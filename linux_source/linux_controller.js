@@ -52,9 +52,9 @@ function getSingleDeviceDetails(ip) {
     })
 }
 
-function init() {
+async function init() {
     try {
-        linux_initialize();
+        await linux_initialize();
         generateListOfDevices();
         setInterval(() => {
             generateListOfDevices();
