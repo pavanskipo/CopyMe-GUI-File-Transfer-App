@@ -2,6 +2,7 @@ const sudo = require('sudo-prompt');
 const {
   exec
 } = require("child_process");
+const path = require('path');
 
 var options = {
   name: 'CopyME',
@@ -14,8 +15,8 @@ module.exports = function () {
         resolve(true);
       } else {
         console.log("Installing dependencies, please wait...")
-        let path = process.cwd() + '/linux_source/install_dependencies.sh';
-        sudo.exec('sh ' + path, options,
+        let path_url = path.join(process.cwd(), 'linux_source', 'install_dependencies.sh');
+        sudo.exec('sh ' + path_url, options,
           function (error, stdout, stderr) {
             if (stdout.includes("checked")) {
               console.log("Intialization complete");

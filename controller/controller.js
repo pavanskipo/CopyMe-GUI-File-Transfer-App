@@ -5,6 +5,7 @@ const os_utility = require('../utilities/determine_os');
 const hostname = require('../utilities/get_hostname');
 const error_log_and_Exit = require('../errors/log_and_exit');
 const linux_controller = require('../linux_source/linux_controller');
+const osx_controller = require('../osx_source/osx_controller');
 const storage = require('../utilities/upload_handler');
 
 // Declarations
@@ -15,7 +16,10 @@ const SUPPORTED_OS = {
         image: '/images/linux.png'
     },
     WINDOWS: 'windows_source',
-    MAC: 'mac_source',
+    MAC: {
+        controller: osx_controller,
+        image: '/images/osx.png'
+    },
 }
 var DEVICE_DETAILS = {
     name: '',
