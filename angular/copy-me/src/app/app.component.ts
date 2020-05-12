@@ -20,6 +20,7 @@ export class AppComponent {
   public device_list = true;
   public files: NgxFileDropEntry[] = [];
   public file_progress = {};
+  private device_ip = '';
 
   ngOnInit() {
     let url = window.location.href + 'api/getdevices';
@@ -32,19 +33,20 @@ export class AppComponent {
   }
 
   getDeviceDetails(ip) {
-    let url = window.location.href + 'api/getdevicedetails';
+    let url = 'http://' + ip + ':3000/api/getdevicedetails';
     // let url = 'http://localhost:3000/' + 'api/getdevicedetails';
     this.spinner.show();
     this.http.get<any>(url).subscribe((data) => {
       this.device_detail = data;
       this.spinner.hide();
+      this.device_ip = ip;
       this.device_list = false;
     });
   }
 
  
   public upload(data) {
-    let uploadURL = window.location.href + 'api/upload';
+    let uploadURL = 'http://' + this.device_ip + ':3000/api/upload';
 
     return this.http.post<any>(uploadURL, data, {
       reportProgress: true,
@@ -52,11 +54,9 @@ export class AppComponent {
     }).pipe(map((event) => {
 
       switch (event.type) {
-
         case HttpEventType.UploadProgress:
           const progress = Math.round(100 * event.loaded / event.total);
           return { status: 'progress', message: progress };
-
         case HttpEventType.Response:
           return event.body;
         default:
