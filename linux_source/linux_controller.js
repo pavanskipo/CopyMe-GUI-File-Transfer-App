@@ -5,7 +5,7 @@ const http = require('../utilities/http_requests');
 
 // Declarations
 let LIST_OF_DEVICES = [];
-const REFRESH_TIME = 5000;
+const REFRESH_TIME = 15000;
 
 function getListOfDevices() {
     return new Promise(async (resolve, reject) => {
