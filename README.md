@@ -3,7 +3,7 @@
 
 # COPY ME
 
-A GUI based file transfer application
+:computer: A GUI based file transfer application
 
 ## Installation
 
