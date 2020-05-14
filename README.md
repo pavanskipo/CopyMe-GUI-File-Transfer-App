@@ -3,7 +3,7 @@
 
 # COPY ME
 
-:computer: A GUI based file transfer application
+:computer: A GUI based file transfer application. Basically it’s an app for transferring files between devices in local network ( wifi / ethernet ).
 
 ## Installation
 
